@@ -1,0 +1,443 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.16.5 by Michael Rose
+  Copyright 2013-2019 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>  Network File System (NFS)</title>
+<meta name="description" content="An amazing website.">
+
+
+  <meta name="author" content="김승율">
+
+
+<meta property="og:type" content="website">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="Network File System (NFS)">
+<meta property="og:title" content="Network File System (NFS)">
+<meta property="og:url" content="http://localhost:4000/about/">
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+
+<link rel="canonical" href="http://localhost:4000/about/">
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "Person",
+      "name": "Your Name",
+      "url": "http://localhost:4000/"
+    
+  }
+</script>
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+<link href="/feed.xml" type="application/atom+xml" rel="alternate" title="Network File System (NFS) Feed">
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+
+<!--[if IE ]>
+  <style>
+    /* old IE unsupported flexbox fixes */
+    .greedy-nav .site-title {
+      padding-right: 3em;
+    }
+    .greedy-nav button {
+      position: absolute;
+      top: 0;
+      right: 0;
+      height: 100%;
+    }
+  </style>
+<![endif]-->
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--single">
+    <nav class="skip-links">
+  <h2 class="screen-reader-text">Skip links</h2>
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+          <a class="site-logo" href="/"><img src="/assets/images/delphicomLogo.png" alt=""></a>
+        
+        <a class="site-title" href="/">
+          Network File System (NFS)
+          
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="/about/" >Introduction to NFS</a>
+            </li><li class="masthead__menu-item">
+              <a href="/categories/" >Categories</a>
+            </li><li class="masthead__menu-item">
+              <a href="/tags/" >Tags</a>
+            </li></ul>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+
+
+<div itemscope itemtype="https://schema.org/Person">
+
+  
+    <div class="author__avatar">
+      
+
+      
+        <img src="/assets/images/delphicomLogo.png" alt="김승율" itemprop="image">
+      
+    </div>
+  
+
+  <div class="author__content">
+    
+      <h3 class="author__name" itemprop="name">김승율</h3>
+    
+    
+      <div class="author__bio" itemprop="description">
+        <p>지킬 테스트 블로그</p>
+
+      </div>
+    
+  </div>
+
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">Follow</button>
+    <ul class="author__urls social-icons">
+      
+        <li itemprop="homeLocation" itemscope itemtype="https://schema.org/Place">
+          <i class="fas fa-fw fa-map-marker-alt" aria-hidden="true"></i> <span itemprop="name">Korea</span>
+        </li>
+      
+
+      
+        
+          
+            <li><a href="mailto:pookkr@gmail.com" rel="nofollow noopener noreferrer"><i class="fas fa-fw fa-envelope-square" aria-hidden="true"></i> Email</a></li>
+          
+        
+          
+            <li><a href="https://google.com" rel="nofollow noopener noreferrer"><i class="fas fa-fw fa-link" aria-hidden="true"></i> Website</a></li>
+          
+        
+          
+            <li><a href="https://twitter.com/" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-twitter-square" aria-hidden="true"></i> Twitter</a></li>
+          
+        
+          
+            <li><a href="https://facebook.com/" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-facebook-square" aria-hidden="true"></i> Facebook</a></li>
+          
+        
+          
+            <li><a href="https://github.com/" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+          
+        
+          
+            <li><a href="https://instagram.com/" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-instagram" aria-hidden="true"></i> Instagram</a></li>
+          
+        
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      <!--
+  <li>
+    <a href="http://link-to-whatever-social-network.com/user/" itemprop="sameAs" rel="nofollow noopener noreferrer">
+      <i class="fas fa-fw" aria-hidden="true"></i> Custom Social Profile Link
+    </a>
+  </li>
+-->
+    </ul>
+  </div>
+</div>
+
+  
+  </div>
+
+
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="">
+    
+    
+    
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title" itemprop="headline">
+</h1>
+          
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        
+        <h2 id="introduction-to-nfs">Introduction to NFS</h2>
+
+<p>현재 Red Hat Enterprise Linux에는 NFS의 두 가지 주요 버전이 포함되어 있습니다</p>
+<ul>
+  <li>NFS 버전 3 (NFSv3)은 안전한 비동기 쓰기를 지원하며 이전 NFSv2보다 오류 처리시 더욱 강력합니다. 또한 64 비트 파일 크기와 오프셋을 지원하므로 클라이언트가 2GB 이상의 파일 데이터에 액세스 할 수 있습니다.</li>
+  <li>NFS 버전 4 (NFSv4)는 방화벽 및 인터넷을 통해 작동하며 더 이상 rpcbind 서비스가 필요없고 ACL을 지원하며 상태 저장 작업을 사용합니다.
+ Red Hat Enterprise Linux는 Red Hat Enterprise Linux 7.4 릴리스 이후 NFS 버전 4.2 (NFSv4.2)를 완벽하게 지원합니다.</li>
+</ul>
+
+<p>다음은 Red Hat Enterprise Linux 7.5에서 NFSv4.2의 기능입니다.</p>
+<ul>
+  <li>Server-Side Copy : NFSv4.2는 네트워크 자원을 낭비하지 않으면 서 NFS 클라이언트가 효율적으로 데이터를 복사 할 수 있도록하는 copy_file_range () 시스템 호출을 지원합니다.</li>
+  <li>Sparse Files : 파일의 공간 효율성을 확인하고 플레이스 홀더가 스토리지 효율성을 향상시킵니다. 하나 이상의 구멍이있는 파일입니다. 구멍은 할당되지 않은 또는 초기화되지 않은 데이터 블록으로 구성됩니다. lseek () 작업은 NFSv4.2에서 seek_hole () 및 seek_data ()를 지원하므로 응용 프로그램에서 스파 스 파일의 구멍 위치를 매핑 할 수 있습니다.</li>
+  <li>Space Reservation : 스토리지 서버가 여유 공간을 확보 할 수 있게하여 서버의 공간 부족을 방지합니다. NFSv4.2는 공간 예약을 위해 allocate () 작업을 지원하고, 공간을 예약 해제하기위한 작업을 deallocate ()하고, 파일의 공간을 미리 할당하거나 할당을 해제하기위한 fallocate () 작업을 지원합니다.</li>
+  <li>Labeled NFS : 데이터 액세스 권한을 시행하고 NFS 파일 시스템의 개별 파일에 대해 클라이언트와 서버간에 SELinux 레이블을 사용합니다.</li>
+  <li>Layout Enhancements : NFSv4.2는 클라이언트가 레이아웃과의 통신에 대해 메타 데이터 서버에 알리는 데 사용할 수있는 새로운 작업 인 layoutstats ()를 제공합니다.</li>
+</ul>
+
+<p>7.4 이전 버전의 Red Hat Enterprise Linux는 버전 4.1까지의 NFS를 지원합니다.</p>
+
+<p>다음은 NFSv4.1의 기능입니다.</p>
+<ul>
+  <li>네트워크의 성능과 보안을 향상시키고 병렬 NFS (pNFS)에 대한 클라이언트 측 지원을 포함합니다.</li>
+  <li>더 이상 콜백을위한 별도의 TCP 연결이 필요하지 않습니다. NFS 서버가 클라이언트에 접속할 수없는 경우에도 위임을 허용합니다. 예를 들어, NAT 또는 방화벽이 간섭을 일으킬 수 있습니다.</li>
+  <li>정확히 한 번 의미론을 제공합니다 (재부팅 작업 제외). 이전 문제를 방지하여 응답이 손실되고 작업이 두 번 전송 된 경우 특정 작업이 부정확 한 결과를 반환 할 수 있습니다.</li>
+</ul>
+
+<p>NFS 클라이언트는 기본적으로 NFSv4.1을 사용하여 마운트하려고 시도하고 서버가 NFSv4.1을 지원하지 않을 때 NFSv4.0으로 폴백합니다. 서버가 NFSv4.0을 지원하지 않으면 나중에 마운트가 NFSv3으로 변경됩니다.</p>
+
+<p>NFS의 모든 버전은 IP 네트워크에서 실행중인 TCP (전송 제어 프로토콜)를 사용할 수 있으며 NFSv4는이를 필요로합니다. NFSv3은 IP 네트워크에서 실행되는 UDP (User Datagram Protocol)를 사용하여 클라이언트와 서버 사이의 상태 비 저장 네트워크 연결을 제공 할 수 있습니다.</p>
+
+<p>UDP와 함께 NFSv3을 사용하는 경우 (정상 조건에서) 상태 비 저장 UDP 연결은 TCP보다 프로토콜 오버 헤드가 적습니다. 이는 매우 깨끗하고 혼잡하지 않은 네트워크에서 더 나은 성능으로 변환 될 수 있습니다. 그러나 UDP는 상태가 없으므로 서버가 예기치 않게 다운되면 UDP 클라이언트는 서버에 대한 요청으로 계속 네트워크를 포화 상태로 유지합니다. 또한 UDP로 프레임이 손실되면 전체 RPC 요청을 다시 전송해야합니다. TCP에서는 손실 된 프레임 만 재전송해야합니다. 이러한 이유로 TCP는 NFS 서버에 연결할 때 선호되는 프로토콜입니다.</p>
+
+<p>장착 및 잠금 프로토콜은 NFSv4 프로토콜에 통합되었습니다. 서버는 또한 잘 알려진 TCP 포트 2049에서 청취합니다. 따라서 NFSv4는 rpcbind [1], lockd 및 rpc.statd 데몬과 상호 작용할 필요가 없습니다. rpc.mountd 데몬은 내보내기를 설정하기 위해 여전히 NFS 서버에서 필요하지만 모든 over-the-wire 조작에는 관여하지 않습니다.</p>
+
+<p>TCP 래퍼가 클라이언트에 대한 액세스 권한을 부여한 후 NFS 서버는 /etc/exports 구성 파일을 참조하여 클라이언트가 내 보낸 파일 시스템에 액세스 할 수 있는지 여부를 결정합니다. 확인되면 모든 파일 및 디렉토리 작업을 사용자가 사용할 수 있습니다.</p>
+
+<p><strong>Important</strong></p>
+
+<p>방화벽이 설정된 Red Hat Enterprise Linux 기본 설치에서 NFS가 작동하려면 기본 TCP포트 2049로 IPTables를 구성하십시오. 적절한 IPTables 구성이 없으면 NFS가 제대로 작동 하지 않습니다.</p>
+
+<p>NFS 초기화 스크립트 및 rpc.nfsd 프로세스는 이제 시스템 시작 중에 지정된 모든 포트에 대한 바인딩을 허용합니다. 그러나 포트를 사용할 수 없거나 다른 데몬과 충돌하는 경우 오류가 발생할 수 있습니다.</p>
+
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+
+
+        
+      </footer>
+
+      <section class="page__share">
+  
+    <h4 class="page__share-title">Share on</h4>
+  
+
+  <a href="https://twitter.com/intent/tweet?text=%20http%3A%2F%2Flocalhost%3A4000%2Fabout%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+
+  <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2Fabout%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A4000%2Fabout%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+</section>
+
+
+      
+    </div>
+
+    
+  </article>
+
+  
+  
+</div>
+
+    </div>
+
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+      <li><strong>Follow:</strong></li>
+    
+
+    
+      
+        
+          <li><a href="https://github.com" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+        
+      
+    
+
+    <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2019 Your Name. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+  <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
+
+
+
+
+
+
+
+    
+  <script>
+    var disqus_config = function () {
+      this.page.url = "http://localhost:4000/about/";  // Replace PAGE_URL with your page's canonical URL variable
+      this.page.identifier = ""; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+    (function() { // DON'T EDIT BELOW THIS LINE
+      var d = document, s = d.createElement('script');
+      s.src = 'https://pookkr123-github-io.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', +new Date());
+      (d.head || d.body).appendChild(s);
+    })();
+  </script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+  
+
+
+
+
+
+  </body>
+</html>

@@ -1,14 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
-<loc>http://localhost:4000/blog/first-post/</loc>
-<lastmod>2019-08-20T00:00:00-07:00</lastmod>
+<loc>http://localhost:4000/%EB%8D%B8%ED%94%BC%EC%BD%A4/first-post/</loc>
+<lastmod>2019-08-20T00:00:00+09:00</lastmod>
 </url>
 <url>
-<loc>http://localhost:4000/two-post/</loc>
-<lastmod>2019-08-20T00:00:00-07:00</lastmod>
+<loc>http://localhost:4000/%EB%91%90%EC%82%B0/two-post/</loc>
+<lastmod>2019-08-20T00:00:00+09:00</lastmod>
+</url>
+<url>
+<loc>http://localhost:4000/about/</loc>
+</url>
+<url>
+<loc>http://localhost:4000/categories/</loc>
+</url>
+<url>
+<loc>http://localhost:4000/categories/%EB%8D%B8%ED%94%BC%EC%BD%A4/</loc>
 </url>
 <url>
 <loc>http://localhost:4000/</loc>
+</url>
+<url>
+<loc>http://localhost:4000/tags/</loc>
 </url>
 </urlset>

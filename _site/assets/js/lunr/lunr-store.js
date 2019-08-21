@@ -1,11 +1,11 @@
 var store = [{
-        "title": "github.io 블로그 시작하기",
-        "excerpt":"GitHub Blog 서비스인 github.io 블로그 시작하기로 했다. GitHub Blog 서비스의 이름은 Pages이다. Pages가 다른 블로그 플랫폼 보다 편한 것 같아서 마음에 든다. 다른 사람들도 같이 많이 사용했으면 좋겠다는 생각이 든다. YFM에서 정의한 제목을 이중 괄호 구문으로 본문에 추가할 수 있다. 이 글의 제목은 github.io 블로그 시작하기이고 마지막으로 수정된 시간은 2019-08-20이다....","categories": ["Blog"],
-        "tags": ["Blog"],
-        "url": "http://localhost:4000/blog/first-post/",
-        "teaser":null},{
-        "title": "Two Post",
-        "excerpt":"기본적인 텍스트 표기 방식이다. 마크다운은 줄바꿈을 인식하지 않는다. 줄바꿈을 하기 위해서는 라인 끝에 스페이스를 2번 표기해야 한다. 여러가지 강조 표시가 존재한다. 첫번째로 single asterisks, 두번째로 single underscores, 세번째로 double asterisks, 네번째로 double underscores, 다섯번째로 cancelline가 있다. This is a H1 This is a H2 This is a H3 This is...","categories": [],
-        "tags": [],
-        "url": "http://localhost:4000/two-post/",
-        "teaser":null}]
+        "title": "Required Services",
+        "excerpt":"Required Services Red Hat Enterprise Linux는 커널 레벨 지원과 데몬 프로세스의 조합을 사용하여 NFS 파일 공유를 제공합니다. 모든 NFS 버전은 클라이언트와 서버 간의 원격 프로 시저 호출 (RPC)에 의존합니다. Red Hat Enterprise Linux 7에서 RPC 서비스는 rpcbind 서비스에 의해 제어됩니다. NFS 파일 시스템을 공유하거나 마운트하려면 구현 된 NFS 버전에 따라...","categories": ["델피콤"],
+        "tags": ["개발팀"],
+        "url": "http://localhost:4000/%EB%8D%B8%ED%94%BC%EC%BD%A4/first-post/",
+        "teaser":"http://localhost:4000/assets/images/delphicomLogo.png"},{
+        "title": "pNFS",
+        "excerpt":"pNFS Red Hat Enterprise Linux 6.4에서는 NFS v4.1 표준의 일부로 Parallel NFS (pNFS)를 지원합니다. pNFS 아키텍처는 성능 향상을 통해 NFS의 확장 성을 향상시킵니다. 즉, 서버가 pNFS를 구현할 때 클라이언트는 동시에 여러 서버를 통해 데이터에 액세스 할 수 있습니다. 파일, 객체 및 블록과 같은 세 가지 저장소 프로토콜 또는 레이아웃을 지원합니다....","categories": ["두산"],
+        "tags": ["서비스팀"],
+        "url": "http://localhost:4000/%EB%91%90%EC%82%B0/two-post/",
+        "teaser":"http://localhost:4000/assets/images/delphicomLogo.png"}]

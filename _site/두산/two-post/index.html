@@ -9,18 +9,21 @@
   <head>
     <meta charset="utf-8">
 
-<!-- begin _includes/seo.html --><title>Network File System (NFS)</title>
-<meta name="description" content="An amazing website.">
+<!-- begin _includes/seo.html --><title>pNFS - Network File System (NFS)</title>
+<meta name="description" content="소주제 2">
 
 
   <meta name="author" content="김승율">
 
 
-<meta property="og:type" content="website">
+<meta property="og:type" content="article">
 <meta property="og:locale" content="en_US">
 <meta property="og:site_name" content="Network File System (NFS)">
-<meta property="og:title" content="Network File System (NFS)">
-<meta property="og:url" content="http://localhost:4000/">
+<meta property="og:title" content="pNFS">
+<meta property="og:url" content="http://localhost:4000/%EB%91%90%EC%82%B0/two-post/">
+
+
+  <meta property="og:description" content="소주제 2">
 
 
 
@@ -28,8 +31,11 @@
 
 
 
+  <meta property="article:published_time" content="2019-08-20T00:00:00+09:00">
 
 
+
+  <meta property="article:modified_time" content="2019-08-20T00:00:00+09:00">
 
 
 
@@ -38,7 +44,7 @@
   
 
 
-<link rel="canonical" href="http://localhost:4000/">
+<link rel="canonical" href="http://localhost:4000/%EB%91%90%EC%82%B0/two-post/">
 
 
 
@@ -99,7 +105,7 @@
 
   </head>
 
-  <body class="layout--home">
+  <body class="layout--single">
     <nav class="skip-links">
   <h2 class="screen-reader-text">Skip links</h2>
   <ul>
@@ -280,49 +286,167 @@
   </div>
 
 
-  <div class="archive">
-    
-      <h1 id="page-title" class="page__title"></h1>
-    
-    
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="pNFS">
+    <meta itemprop="description" content="소주제 2">
+    <meta itemprop="datePublished" content="August 20, 2019">
+    <meta itemprop="dateModified" content="August 20, 2019">
 
-<h3 class="archive__subtitle">Recent posts</h3>
-
-
-  
-
-
-
-<div class="list__item">
-  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
-    
-    <h2 class="archive__item-title" itemprop="headline">
+    <div class="page__inner-wrap">
       
-        <a href="/%EB%91%90%EC%82%B0/two-post/" rel="permalink">pNFS
-</a>
-      
-    </h2>
-    
-      <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
+        <header>
+          <h1 id="page-title" class="page__title" itemprop="headline">pNFS
+</h1>
+          
+            <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
 
 
 
 
   1 minute read
 </p>
+          
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        
+        <h2 id="pnfs">pNFS</h2>
+
+<p>Red Hat Enterprise Linux 6.4에서는 NFS v4.1 표준의 일부로 Parallel NFS (pNFS)를 지원합니다. pNFS 아키텍처는 성능 향상을 통해 NFS의 확장 성을 향상시킵니다. 즉, 서버가 pNFS를 구현할 때 클라이언트는 동시에 여러 서버를 통해 데이터에 액세스 할 수 있습니다. 파일, 객체 및 블록과 같은 세 가지 저장소 프로토콜 또는 레이아웃을 지원합니다.</p>
+
+<p><strong>Note</strong><br />
+이 프로토콜은 파일, 객체 및 블록과 같은 세 가지 가능한 pNFS 레이아웃 유형을 허용합니다. Red Hat Enterprise Linux 6.4 클라이언트는 파일 레이아웃 유형 만 지원했지만 Red Hat Enterprise Linux 7은 파일 레이아웃 유형을 지원합니다. 객체 및 블록 레이아웃 유형은 기술 미리보기로 포함됩니다.</p>
+
+<p><strong>pNFS Flex Files</strong><br />
+유연한 파일은 독립형 NFSv3 및 NFSv4 서버를 스케일 아웃 이름 공간에 집계 할 수있는 pNFS의 새로운 레이아웃입니다. Flex Files 기능은 RFC 7862 사양에 설명 된 NFSv4.2 표준의 일부입니다.</p>
+
+<p>Red Hat Enterprise Linux는 Red Hat Enterprise Linux 7.4부터 Flex Files 서버에서 NFS 공유를 마운트 할 수 있습니다.</p>
+
+<p><strong>Mounting pNFS Shares</strong>
+pNFS 기능을 사용하려면 NFS 버전 4.1 이상을 사용하는 pNFS 지원 서버에서 공유를 마운트하십시오.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code># mount -t nfs -o v4.1 server:/remote-export /local-directory
+</code></pre></div></div>
+
+<p>서버가 pNFS를 사용하면 nfs_layout_nfsv41_files 커널이 자동으로 첫 번째 마운트에로드됩니다. 출력의 마운트 항목은 minorversion = 1을 포함해야합니다. 다음 명령을 사용하여 모듈이로드되었는지 확인하십시오.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ lsmod | grep nfs_layout_nfsv41_files
+</code></pre></div></div>
+
+<p>Flex 파일을 지원하는 서버의 Flex Files 기능을 사용하여 NFS 공유를 탑재하려면 NFS 버전 4.2 이상을 사용하십시오.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code># mount -t nfs -o v4.2 server:/remote-export /local-directory
+</code></pre></div></div>
+
+<p>nfs_layout_flexfiles 모듈이로드되었는지 확인하십시오.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ lsmod | grep nfs_layout_flexfiles  
+</code></pre></div></div>
+
+<p>Additional Resources
+For more information on pNFS, refer to: <a href="http://www.pnfs.com">http://www.pnfs.com</a></p>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+  
+
+
+  
+  
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-tags" aria-hidden="true"></i> Tags: </strong>
+    <span itemprop="keywords">
     
-    <p class="archive__item-excerpt" itemprop="description">소주제 2
-</p>
-  </article>
-</div>
+      
+      
+      <a href="/tags/#%EC%84%9C%EB%B9%84%EC%8A%A4%ED%8C%80" class="page__taxonomy-item" rel="tag">서비스팀</a>
+    
+    </span>
+  </p>
+
+
 
 
   
 
 
+  
+  
+  
 
-<div class="list__item">
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-folder-open" aria-hidden="true"></i> Categories: </strong>
+    <span itemprop="keywords">
+    
+      
+      
+      <a href="/categories/#%EB%91%90%EC%82%B0" class="page__taxonomy-item" rel="tag">두산</a>
+    
+    </span>
+  </p>
+
+
+        
+          <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time datetime="2019-08-20">August 20, 2019</time></p>
+        
+      </footer>
+
+      <section class="page__share">
+  
+    <h4 class="page__share-title">Share on</h4>
+  
+
+  <a href="https://twitter.com/intent/tweet?text=pNFS%20http%3A%2F%2Flocalhost%3A4000%2F%25EB%2591%2590%25EC%2582%25B0%2Ftwo-post%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+
+  <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2F%25EB%2591%2590%25EC%2582%25B0%2Ftwo-post%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A4000%2F%25EB%2591%2590%25EC%2582%25B0%2Ftwo-post%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+</section>
+
+
+      
+  <nav class="pagination">
+    
+      <a href="/%EB%8D%B8%ED%94%BC%EC%BD%A4/first-post/" class="pagination--pager" title="Required Services
+">Previous</a>
+    
+    
+      <a href="#" class="pagination--pager disabled">Next</a>
+    
+  </nav>
+
+    </div>
+
+    
+  </article>
+
+  
+  
+    <div class="page__related">
+      <h4 class="page__related-title">You may also enjoy</h4>
+      <div class="grid__wrapper">
+        
+          
+
+
+
+<div class="grid__item">
   <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+      <div class="archive__item-teaser">
+        <img src=
+          
+            "/assets/images/delphicomLogo.png"
+          
+          alt="">
+      </div>
     
     <h2 class="archive__item-title" itemprop="headline">
       
@@ -344,13 +468,13 @@
   </article>
 </div>
 
-
-
-
-
-
-  </div>
+        
+      </div>
+    </div>
+  
+  
 </div>
+
     </div>
 
     
@@ -396,8 +520,8 @@
     
   <script>
     var disqus_config = function () {
-      this.page.url = "http://localhost:4000/";  // Replace PAGE_URL with your page's canonical URL variable
-      this.page.identifier = ""; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+      this.page.url = "http://localhost:4000/%EB%91%90%EC%82%B0/two-post/";  // Replace PAGE_URL with your page's canonical URL variable
+      this.page.identifier = "/%EB%91%90%EC%82%B0/two-post"; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
     };
     (function() { // DON'T EDIT BELOW THIS LINE
       var d = document, s = d.createElement('script');
