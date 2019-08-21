@@ -9,18 +9,21 @@
   <head>
     <meta charset="utf-8">
 
-<!-- begin _includes/seo.html --><title>Network File System (NFS)</title>
-<meta name="description" content="An amazing website.">
+<!-- begin _includes/seo.html --><title>Configuring NFS Client - Network File System (NFS)</title>
+<meta name="description" content="소주제">
 
 
   <meta name="author" content="김승율">
 
 
-<meta property="og:type" content="website">
+<meta property="og:type" content="article">
 <meta property="og:locale" content="en_US">
 <meta property="og:site_name" content="Network File System (NFS)">
-<meta property="og:title" content="Network File System (NFS)">
-<meta property="og:url" content="http://localhost:4000/">
+<meta property="og:title" content="Configuring NFS Client">
+<meta property="og:url" content="http://localhost:4000/%EB%8D%B8%ED%94%BC%EC%BD%A4/three-post/">
+
+
+  <meta property="og:description" content="소주제">
 
 
 
@@ -28,8 +31,11 @@
 
 
 
+  <meta property="article:published_time" content="2019-08-21T00:00:00+09:00">
 
 
+
+  <meta property="article:modified_time" content="2019-08-21T00:00:00+09:00">
 
 
 
@@ -38,11 +44,9 @@
   
 
 
-<link rel="canonical" href="http://localhost:4000/">
+<link rel="canonical" href="http://localhost:4000/%EB%8D%B8%ED%94%BC%EC%BD%A4/three-post/">
 
 
-
-  <link rel="next" href="http://localhost:4000/page2/">
 
 
 <script type="application/ld+json">
@@ -101,7 +105,7 @@
 
   </head>
 
-  <body class="layout--home">
+  <body class="layout--single">
     <nav class="skip-links">
   <h2 class="screen-reader-text">Skip links</h2>
   <ul>
@@ -282,49 +286,152 @@
   </div>
 
 
-  <div class="archive">
-    
-      <h1 id="page-title" class="page__title"></h1>
-    
-    
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="Configuring NFS Client">
+    <meta itemprop="description" content="소주제">
+    <meta itemprop="datePublished" content="August 21, 2019">
+    <meta itemprop="dateModified" content="August 21, 2019">
 
-<h3 class="archive__subtitle">Recent posts</h3>
-
-
-  
-
-
-
-<div class="list__item">
-  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
-    
-    <h2 class="archive__item-title" itemprop="headline">
+    <div class="page__inner-wrap">
       
-        <a href="/%EB%8D%B8%ED%94%BC%EC%BD%A4/three-post/" rel="permalink">Configuring NFS Client
-</a>
-      
-    </h2>
-    
-      <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
+        <header>
+          <h1 id="page-title" class="page__title" itemprop="headline">Configuring NFS Client
+</h1>
+          
+            <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
 
 
 
 
   less than 1 minute read
 </p>
+          
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        
+        <h2 id="configuring-nfs-client">Configuring NFS Client</h2>
+<p>mount 명령은 클라이언트 측에서 NFS 공유를 마운트합니다. 형식은 다음과 같습니다.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code># mount -t nfs -o options server:/remote/export /local/directory
+</code></pre></div></div>
+
+<p>이 명령은 다음 변수를 사용합니다.<br />
+<strong>options</strong><br />
+쉼표로 구분 된 마운트 옵션 목록<br />
+<strong>server</strong><br />
+마운트 할 파일 시스템을 내보내는 서버의 호스트 이름, IP 주소 또는 정규화 된 도메인 이름<br />
+<strong>/remote/export</strong><br />
+서버에서 내보내는 파일 시스템 또는 디렉토리, 즉 마운트하려는 디렉토리<br />
+<strong>/local/directory</strong><br />
+/remote/export가 마운트 된 클라이언트 위치</p>
+
+<p>Red Hat Enterprise Linux 7에서 사용되는 NFS 프로토콜 버전은 nfsvers 또는 vers 마운트 옵션으로 식별됩니다. 기본적으로 mount는 mount -t nfs와 함께 NFSv4를 사용합니다. 서버가 NFSv4를 지원하지 않으면 클라이언트는 자동으로 서버가 지원하는 버전으로 단계적으로 내려갑니다. nfsvers/vers 옵션을 사용하여 서버가 지원하지 않는 특정 버전을 전달하면 마운트가 실패합니다. 파일 시스템 유형 nfs4는 레거시 이유로도 사용할 수 있습니다. 이것은 mount -t nfs -o nfsvers = 4 host:/remote/export/local/ 디렉토리를 실행하는 것과 같습니다.</p>
+
+<p>NFS 공유가 수동으로 마운트 된 경우 재부트시 공유가 자동으로 마운트되지 않습니다. Red Hat Enterprise Linux는 부트시 원격 파일 시스템을 자동으로 마운트하는 두 가지 방법 인 /etc/fstab 파일과 autofs 서비스를 제공합니다.</p>
+
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+  
+
+
+  
+  
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-tags" aria-hidden="true"></i> Tags: </strong>
+    <span itemprop="keywords">
     
-    <p class="archive__item-excerpt" itemprop="description">소주제
-</p>
-  </article>
-</div>
+      
+      
+      <a href="/tags/#%EA%B0%9C%EB%B0%9C%ED%8C%80" class="page__taxonomy-item" rel="tag">개발팀</a>
+    
+    </span>
+  </p>
+
+
 
 
   
 
 
+  
+  
+  
 
-<div class="list__item">
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-folder-open" aria-hidden="true"></i> Categories: </strong>
+    <span itemprop="keywords">
+    
+      
+      
+      <a href="/categories/#%EB%8D%B8%ED%94%BC%EC%BD%A4" class="page__taxonomy-item" rel="tag">델피콤</a>
+    
+    </span>
+  </p>
+
+
+        
+          <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time datetime="2019-08-21">August 21, 2019</time></p>
+        
+      </footer>
+
+      <section class="page__share">
+  
+    <h4 class="page__share-title">Share on</h4>
+  
+
+  <a href="https://twitter.com/intent/tweet?text=Configuring+NFS+Client%20http%3A%2F%2Flocalhost%3A4000%2F%25EB%258D%25B8%25ED%2594%25BC%25EC%25BD%25A4%2Fthree-post%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+
+  <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2F%25EB%258D%25B8%25ED%2594%25BC%25EC%25BD%25A4%2Fthree-post%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A4000%2F%25EB%258D%25B8%25ED%2594%25BC%25EC%25BD%25A4%2Fthree-post%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+</section>
+
+
+      
+  <nav class="pagination">
+    
+      <a href="/%EB%8D%B8%ED%94%BC%EC%BD%A4/six-post/" class="pagination--pager" title="Configuring the NFS Server
+">Previous</a>
+    
+    
+      <a href="#" class="pagination--pager disabled">Next</a>
+    
+  </nav>
+
+    </div>
+
+    
+  </article>
+
+  
+  
+    <div class="page__related">
+      <h4 class="page__related-title">You may also enjoy</h4>
+      <div class="grid__wrapper">
+        
+          
+
+
+
+<div class="grid__item">
   <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+      <div class="archive__item-teaser">
+        <img src=
+          
+            "/assets/images/delphicomLogo.png"
+          
+          alt="">
+      </div>
     
     <h2 class="archive__item-title" itemprop="headline">
       
@@ -346,13 +453,21 @@
   </article>
 </div>
 
+        
+          
 
-  
 
 
-
-<div class="list__item">
+<div class="grid__item">
   <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+      <div class="archive__item-teaser">
+        <img src=
+          
+            "/assets/images/delphicomLogo.png"
+          
+          alt="">
+      </div>
     
     <h2 class="archive__item-title" itemprop="headline">
       
@@ -374,13 +489,21 @@
   </article>
 </div>
 
+        
+          
 
-  
 
 
-
-<div class="list__item">
+<div class="grid__item">
   <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+      <div class="archive__item-teaser">
+        <img src=
+          
+            "/assets/images/delphicomLogo.png"
+          
+          alt="">
+      </div>
     
     <h2 class="archive__item-title" itemprop="headline">
       
@@ -402,13 +525,21 @@
   </article>
 </div>
 
+        
+          
 
-  
 
 
-
-<div class="list__item">
+<div class="grid__item">
   <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+      <div class="archive__item-teaser">
+        <img src=
+          
+            "/assets/images/delphicomLogo.png"
+          
+          alt="">
+      </div>
     
     <h2 class="archive__item-title" itemprop="headline">
       
@@ -430,49 +561,13 @@
   </article>
 </div>
 
-
-
-
-<nav class="pagination">
+        
+      </div>
+    </div>
   
-  <ul>
-    
-    
-    <li><a href="#" class="disabled"><span aria-hidden="true">Previous</span></a></li>
-    
-
-    
-    
-      <li><a href="#" class="disabled current">1</a></li>
-    
-
-    
-    
-
-    
-    
-    
-
-    
-
-    
-    
-
-    
-      <li><a href="/page2/">2</a></li>
-    
-
-    
-    
-      <li><a href="/page2/">Next</a></li>
-    
-  </ul>
-</nav>
-
-
-
-  </div>
+  
 </div>
+
     </div>
 
     
@@ -513,6 +608,25 @@
 
 
 
+
+
+    
+  <script>
+    var disqus_config = function () {
+      this.page.url = "http://localhost:4000/%EB%8D%B8%ED%94%BC%EC%BD%A4/three-post/";  // Replace PAGE_URL with your page's canonical URL variable
+      this.page.identifier = "/%EB%8D%B8%ED%94%BC%EC%BD%A4/three-post"; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+    (function() { // DON'T EDIT BELOW THIS LINE
+      var d = document, s = d.createElement('script');
+      s.src = 'https://pookkr123-github-io.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', +new Date());
+      (d.head || d.body).appendChild(s);
+    })();
+  </script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+  
 
 
 

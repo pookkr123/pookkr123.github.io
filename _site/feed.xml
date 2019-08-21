@@ -1,8 +1,195 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.6">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2019-08-21T14:25:12+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Network File System (NFS)</title><subtitle>An amazing website.</subtitle><author><name>김승율</name></author><entry><title type="html">Required Services</title><link href="http://localhost:4000/%EB%8D%B8%ED%94%BC%EC%BD%A4/first-post/" rel="alternate" type="text/html" title="Required Services" /><published>2019-08-20T00:00:00+09:00</published><updated>2019-08-20T00:00:00+09:00</updated><id>http://localhost:4000/%EB%8D%B8%ED%94%BC%EC%BD%A4/first-post</id><content type="html" xml:base="http://localhost:4000/%EB%8D%B8%ED%94%BC%EC%BD%A4/first-post/">&lt;h2 id=&quot;required-services&quot;&gt;Required Services&lt;/h2&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.6">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2019-08-21T15:02:21+09:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Network File System (NFS)</title><subtitle>An amazing website.</subtitle><author><name>김승율</name></author><entry><title type="html">Common NFS Mount Options</title><link href="http://localhost:4000/%EB%8D%B8%ED%94%BC%EC%BD%A4/five-post/" rel="alternate" type="text/html" title="Common NFS Mount Options" /><published>2019-08-21T00:00:00+09:00</published><updated>2019-08-21T00:00:00+09:00</updated><id>http://localhost:4000/%EB%8D%B8%ED%94%BC%EC%BD%A4/five-post</id><content type="html" xml:base="http://localhost:4000/%EB%8D%B8%ED%94%BC%EC%BD%A4/five-post/">&lt;h2 id=&quot;common-nfs-mount-options&quot;&gt;Common NFS Mount Options&lt;/h2&gt;
+&lt;p&gt;NFS를 사용하는 파일 시스템을 원격 호스트에 마운트하는 것 외에도 마운트 된 공유를보다 쉽게 ​​사용할 수 있도록 마운트시 다른 옵션을 지정할 수도 있습니다. 이 옵션은 수동 마운트 명령, /etc/fstab 설정 및 autofs와 함께 사용할 수 있습니다&lt;/p&gt;
+
+&lt;p&gt;다음은 NFS 마운트에 일반적으로 사용되는 옵션입니다.&lt;/p&gt;
+
+&lt;h3 id=&quot;intr&quot;&gt;&lt;strong&gt;intr&lt;/strong&gt;&lt;/h3&gt;
+&lt;p&gt;서버가 다운되거나 도달 할 수없는 경우 NFS 요청이 중단되도록합니다.&lt;/p&gt;
+
+&lt;h3 id=&quot;lookupcachemode&quot;&gt;&lt;strong&gt;lookupcache=mode&lt;/strong&gt;&lt;/h3&gt;
+&lt;p&gt;커널이 주어진 마운트 지점에 대한 디렉토리 항목의 캐시를 관리하는 방법을 지정합니다. mode에 유효한 인수는 all, none 또는 pos / positive입니다.&lt;/p&gt;
+
+&lt;h3 id=&quot;nfsversversion&quot;&gt;&lt;strong&gt;nfsvers=version&lt;/strong&gt;&lt;/h3&gt;
+&lt;p&gt;사용할 버전의 NFS 프로토콜을 지정합니다. 버전은 3 또는 4입니다. 이것은 여러 NFS 서버를 실행하는 호스트에 유용합니다. 버전을 지정하지 않으면 NFS는 kernel 및 mount 명령에서 지원하는 가장 높은 버전을 사용합니다.
+옵션 vers는 nfsvers와 동일하며 호환성을 위해이 릴리스에 포함되어 있습니다.&lt;/p&gt;
+
+&lt;h3 id=&quot;noacl&quot;&gt;&lt;strong&gt;noacl&lt;/strong&gt;&lt;/h3&gt;
+&lt;p&gt;모든 ACL 처리를 해제합니다. 가장 최근의 ACL 기술이 이전 시스템과 호환되지 않기 때문에 Red Hat Enterprise Linux, Red Hat Linux 또는 Solaris의 이전 버전과 인터페이스 할 때 필요할 수 있습니다.&lt;/p&gt;
+
+&lt;h3 id=&quot;nolock&quot;&gt;&lt;strong&gt;nolock&lt;/strong&gt;&lt;/h3&gt;
+&lt;p&gt;파일 잠금을 사용하지 않습니다. 이 설정은 아주 오래된 NFS 서버에 연결할 때 필요합니다.&lt;/p&gt;
+
+&lt;h3 id=&quot;noexec&quot;&gt;&lt;strong&gt;noexec&lt;/strong&gt;&lt;/h3&gt;
+&lt;p&gt;마운트 된 파일 시스템에서 바이너리의 실행을 방지합니다. 이는 시스템이 호환되지 않는 2 진 파일을 포함하는 비 Linux 파일 시스템을 마운트하는 경우에 유용합니다.&lt;/p&gt;
+
+&lt;h3 id=&quot;nosuid&quot;&gt;&lt;strong&gt;nosuid&lt;/strong&gt;&lt;/h3&gt;
+&lt;p&gt;set-user-identifier 또는 set-group-identifier 비트를 비활성화합니다. 이렇게하면 원격 사용자가 setuid 프로그램을 실행하여 높은 권한을 얻을 수 없습니다.&lt;/p&gt;
+
+&lt;h3 id=&quot;portnum&quot;&gt;&lt;strong&gt;port=num&lt;/strong&gt;&lt;/h3&gt;
+&lt;p&gt;NFS 서버 포트의 숫자 값을 지정합니다. num이 0 (기본값)이면 mount는 원격 호스트의 rpcbind 서비스에 사용할 포트 번호를 쿼리합니다. 원격 호스트의 NFS 데몬이 rpcbind 서비스에 등록되지 않은 경우 TCP 2049의 표준 NFS 포트 번호가 대신 사용됩니다.&lt;/p&gt;
+
+&lt;h3 id=&quot;rsizenum-and-wsizenum&quot;&gt;&lt;strong&gt;rsize=num and wsize=num&lt;/strong&gt;&lt;/h3&gt;
+&lt;p&gt;이 옵션은 단일 NFS 읽기 또는 쓰기 작업에서 전송할 최대 바이트 수를 설정합니다.
+rsize 및 wsize에 대한 고정 기본값은 없습니다. 기본적으로 NFS는 서버와 클라이언트가 지원하는 가장 큰 값을 사용합니다. Red Hat Enterprise Linux 7에서 클라이언트와 서버는 최대 1,048,576 바이트입니다.&lt;/p&gt;
+
+&lt;h3 id=&quot;secmode&quot;&gt;&lt;strong&gt;sec=mode&lt;/strong&gt;&lt;/h3&gt;
+&lt;p&gt;기본 설정은 sec = sys이며 로컬 UNIX UID 및 GID를 사용합니다. 이들은 AUTH_SYS를 사용하여 NFS 조작을 인증합니다.&lt;/p&gt;
+
+&lt;p&gt;sec = krb5는 로컬 UNIX UID 및 GID 대신 Kerberos V5를 사용하여 사용자를 인증합니다.&lt;/p&gt;
+
+&lt;p&gt;sec = krb5i는 사용자 인증에 Kerberos V5를 사용하고 보안 체크섬을 사용하여 NFS 조작의 무결성 검사를 수행하여 데이터 변조를 방지합니다.&lt;/p&gt;
+
+&lt;p&gt;sec = krb5p는 사용자 인증, 무결성 검사에 Kerberos V5를 사용하고 NFS 트래픽을 암호화하여 트래픽 스니핑을 방지합니다. 가장 안전한 설정이지만 성능 오버 헤드가 가장 높습니다.&lt;/p&gt;
+
+&lt;h3 id=&quot;tcp&quot;&gt;&lt;strong&gt;tcp&lt;/strong&gt;&lt;/h3&gt;
+&lt;p&gt;NFS 마운트가 TCP 프로토콜을 사용하도록 지시합니다.&lt;/p&gt;
+
+&lt;h3 id=&quot;udp&quot;&gt;&lt;strong&gt;udp&lt;/strong&gt;&lt;/h3&gt;
+&lt;p&gt;UDP 프로토콜을 사용하도록 NFS 마운트를 지시합니다.&lt;/p&gt;</content><author><name>김승율</name></author><category term="개발팀" /><summary type="html">소주제</summary></entry><entry><title type="html">Mounting NFS File Systems Using /etc/fstab</title><link href="http://localhost:4000/%EB%91%90%EC%82%B0/four-post/" rel="alternate" type="text/html" title="Mounting NFS File Systems Using /etc/fstab" /><published>2019-08-21T00:00:00+09:00</published><updated>2019-08-21T00:00:00+09:00</updated><id>http://localhost:4000/%EB%91%90%EC%82%B0/four-post</id><content type="html" xml:base="http://localhost:4000/%EB%91%90%EC%82%B0/four-post/">&lt;h2 id=&quot;mounting-nfs-file-systems-using-etcfstab&quot;&gt;Mounting NFS File Systems Using /etc/fstab&lt;/h2&gt;
+&lt;p&gt;NFS 공유를 다른 시스템에서 마운트하는 다른 방법은 /etc/fstab 파일에 한 줄을 추가하는 것입니다. 이 줄에는 NFS 서버의 호스트 이름, 내보낼 서버의 디렉토리 및 NFS 공유가 마운트 될 로컬 시스템의 디렉토리가 나와 있어야합니다. /etc/fstab 파일을 수정하려면 루트이어야합니다.&lt;/p&gt;
+
+&lt;p&gt;/etc/fstab에있는 일반 구문은 다음과 같습니다.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;server:/usr/local/pub    /pub   nfs    defaults 0 0
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;이 명령을 실행하려면 클라이언트 시스템에 마운트 지점 /pub가 있어야합니다. 이 행을 클라이언트 시스템의 /etc/fstab에 추가 한 후 mount/pub 명령을 사용하면 마운트 지점 /pub가 서버에서 마운트됩니다.&lt;/p&gt;
+
+&lt;p&gt;NFS 내보내기를 마운트하기위한 유효한 /etc/fstab 항목은 다음 정보를 포함해야합니다&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;server:/remote/export /local/directory nfs options 0 0
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;변수 server, /remote/export, /local/directory 및 옵션은 수동으로 NFS 공유를 마운트 할 때 사용되는 것과 동일합니다.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Note&lt;/strong&gt;&lt;br /&gt;
+/etc/fstab을 읽기 전에 마운트 지점 /local/ 디렉토리가 클라이언트에 있어야합니다. 그렇지 않으면 마운트가 실패합니다.&lt;/p&gt;
+
+&lt;p&gt;/etc/fstab을 편집 한 후 시스템이 새 구성을 등록하도록 마운트 장치를 다시 생성하십시오.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;# systemctl daemon-reload
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name>김승율</name></author><category term="서비스팀" /><summary type="html">소주제</summary></entry><entry><title type="html">Configuring the NFS Server</title><link href="http://localhost:4000/%EB%8D%B8%ED%94%BC%EC%BD%A4/six-post/" rel="alternate" type="text/html" title="Configuring the NFS Server" /><published>2019-08-21T00:00:00+09:00</published><updated>2019-08-21T00:00:00+09:00</updated><id>http://localhost:4000/%EB%8D%B8%ED%94%BC%EC%BD%A4/six-post</id><content type="html" xml:base="http://localhost:4000/%EB%8D%B8%ED%94%BC%EC%BD%A4/six-post/">&lt;h2 id=&quot;configuring-the-nfs-server&quot;&gt;Configuring the NFS Server&lt;/h2&gt;
+&lt;p&gt;NFS 서버에서 내보내기를 구성하는 방법에는 두 가지가 있습니다.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;NFS 구성 파일, 즉 /etc/exports 를 수동으로 편집하십시오.&lt;/li&gt;
+  &lt;li&gt;명령 줄을 통해, 즉 exportfs 명령을 사용합니다.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;the-etcexports-configuration-file&quot;&gt;&lt;strong&gt;The /etc/exports Configuration File&lt;/strong&gt;&lt;/h3&gt;
+&lt;p&gt;/etc/exports 파일은 원격 호스트로 내보내는 파일 시스템을 제어하고 옵션을 지정합니다. 다음과 같은 구문 규칙을 따릅니다.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;빈 줄은 무시됩니다.&lt;/li&gt;
+  &lt;li&gt;주석을 추가하려면 해시 기호 (#)가있는 행을 시작하십시오.&lt;/li&gt;
+  &lt;li&gt;긴 줄은 백 슬래시 ()로 래핑 할 수 있습니다.&lt;/li&gt;
+  &lt;li&gt;내 보낸 파일 시스템은 각각의 개별 행에 있어야합니다.&lt;/li&gt;
+  &lt;li&gt;내 보낸 파일 시스템 뒤에있는 권한이 부여 된 호스트 목록은 공백 문자로 구분해야합니다.&lt;/li&gt;
+  &lt;li&gt;각 호스트에 대한 옵션은 호스트 식별자 바로 뒤에 괄호 안에 있어야하며 호스트와 첫 번째 괄호를 구분하는 공백을 두지 않아야합니다.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;내 보낸 파일 시스템의 각 항목에는 다음과 같은 구조가 있습니다.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;export host(options)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;위의 구조는 다음 변수를 사용합니다.&lt;br /&gt;
+&lt;strong&gt;export&lt;/strong&gt;&lt;br /&gt;
+내보낼 디렉토리&lt;br /&gt;
+&lt;strong&gt;host&lt;/strong&gt;&lt;br /&gt;
+내보내기가 공유되는 호스트 또는 네트워크&lt;br /&gt;
+&lt;strong&gt;options&lt;/strong&gt;&lt;br /&gt;
+호스트에 사용할 옵션&lt;/p&gt;
+
+&lt;p&gt;각 호스트에 대한 특정 옵션과 함께 여러 호스트를 지정할 수 있습니다. 그렇게하려면 공백으로 구분 된 목록과 같은 행에 각 호스트 이름과 그 다음에 괄호 안에 각각의 옵션을 나열하십시오.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;export host1(options1) host2(options2) host3(options3)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;가장 간단한 형식의 /etc/exports 파일은 다음 예에서와 같이 내 보낸 디렉토리와 액세스가 허용 된 호스트 만 지정합니다.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;/exported/directory bob.example.com
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;여기서 bob.example.com은 /exported/directory/를 NFS 서버에서 마운트 할 수 있습니다. 이 예제에서는 옵션을 지정하지 않았으므로 NFS는 기본 설정을 사용합니다&lt;/p&gt;
+
+&lt;p&gt;기본 설정은 다음과 같습니다.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;ro&lt;/strong&gt;&lt;br /&gt;
+내 보낸 파일 시스템은 읽기 전용입니다. 원격 호스트는 파일 시스템에서 공유되는 데이터를 변경할 수 없습니다. 호스트가 파일 시스템을 변경 (읽기 및 쓰기) 할 수있게하려면 rw 옵션을 지정하십시오.&lt;br /&gt;
+&lt;strong&gt;sync&lt;/strong&gt;  &lt;br /&gt;
+이전 요청에 의한 변경 사항이 디스크에 기록되기 전에 NFS 서버는 요청에 응답하지 않습니다. 대신 비동기 쓰기를 활성화하려면 async 옵션을 지정하십시오.&lt;br /&gt;
+&lt;strong&gt;wdelay&lt;/strong&gt;  &lt;br /&gt;
+NFS 서버는 다른 쓰기 요청이 임박한 것으로 의심 될 경우 디스크 쓰기를 지연시킵니다. 이는 별도의 쓰기 명령으로 디스크에 액세스해야하는 횟수를 줄여 쓰기 오버 헤드를 줄여 성능을 향상시킬 수 있습니다. 이 기능을 사용하지 않으려면 no_wdelay를 지정하십시오. no_wdelay는 기본 sync 옵션도 지정되어있는 경우에만 사용할 수 있습니다.&lt;br /&gt;
+&lt;strong&gt;root_squash&lt;/strong&gt;&lt;br /&gt;
+이렇게하면 루트 사용자가 원격으로 (로컬이 아닌) 루트 권한을 갖는 것을 방지 할 수 있습니다. 대신 NFS 서버는 사용자 ID nfsnobody를 할당합니다. 이는 원격 루트 사용자의 권한을 가장 낮은 로컬 사용자에게 효과적으로 “과시 (squashes)”하여 원격 서버에 무단으로 기록 할 수 없게합니다. 루트 스쿼시를 사용하지 않으려면 no_root_squash를 지정하십시오.&lt;/p&gt;
+
+&lt;p&gt;모든 원격 사용자 (루트 포함)를 스쿼시하려면 all_sqcduash를 사용하십시오. NFS 서버가 특정 호스트의 원격 사용자에게 할당해야하는 사용자 및 그룹 ID를 지정하려면 다음과 같이 각각 anonuid 및 anongid 옵션을 사용하십시오.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;export host(anonuid=uid,anongid=gid)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;여기에서 uid와 gid는 각각 사용자 ID 번호와 그룹 ID 번호입니다. anonuid 및 anongid 옵션을 사용하면 원격 NFS 사용자가 공유 할 수있는 특별한 사용자 및 그룹 계정을 만들 수 있습니다.&lt;/p&gt;
+
+&lt;p&gt;기본적으로 액세스 제어 목록 (ACL)은 Red Hat Enterprise Linux에서 NFS에 의해 지원됩니다. 이 기능을 사용하지 않으려면 파일 시스템을 내보낼 때 no_acl 옵션을 지정하십시오.&lt;/p&gt;
+
+&lt;p&gt;내 보낸 모든 파일 시스템의 각 기본값은 명시 적으로 대체 되어야합니다. 예를 들어, rw 옵션을 지정하지 않으면 내 보낸 파일 시스템이 읽기 전용으로 공유됩니다. 다음은 두 가지 기본 옵션을 무시하는 /etc/exports의 샘플 행입니다.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;/another/exported/directory 192.168.0.3(rw,async)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;이 예에서 192.168.0.3은 /another/exported/directory/ read 및 write를 마운트 할 수 있으며 디스크에 대한 모든 쓰기는 비동기입니다. 옵션 내보내기에 대한 자세한 내용은 man exportfs를 참조하십시오.&lt;/p&gt;
+
+&lt;p&gt;기본값이 지정되지 않은 다른 옵션을 사용할 수 있습니다. 여기에는 하위 트리 검사를 비활성화하고 안전하지 않은 포트에서 액세스 할 수있게 해주는 기능, 안전하지 않은 파일 잠금을 허용하는 기능 (초기 NFS 클라이언트 구현에 필요)이 포함됩니다. 사용하지 않는 옵션에 대한 자세한 내용은 man exports를 참조하십시오.&lt;/p&gt;
+
+&lt;h3 id=&quot;the-exportfs-command&quot;&gt;&lt;strong&gt;The exportfs Command&lt;/strong&gt;&lt;/h3&gt;
+&lt;p&gt;NFS를 사용하여 원격 사용자에게 내보내는 모든 파일 시스템과 해당 파일 시스템의 액세스 수준은 /etc/exports 파일에 나열됩니다. nfs 서비스가 시작되면 /usr/sbin/exportfs 명령이 실행되어 이 파일을 읽은 다음 실제 마운트 프로세스에 대해 rpc.mountd (NFSv3 인 경우)로 제어를 전달한 다음 rpc.nfsd로 전달하여 파일 시스템을 원격으로 사용할 수 있도록합니다 사용자.&lt;/p&gt;
+
+&lt;p&gt;수동으로 실행하면 /usr/sbin/exportfs 명령을 사용하여 루트 사용자가 NFS 서비스를 다시 시작하지 않고 디렉토리를 선택적으로 내보내거나 반출 할 수 있습니다. 적절한 옵션이 주어지면 /usr/sbin/exportfs 명령은 내 보낸 파일 시스템을 /var/lib/nfs/xtab에 기록합니다. rpc.mountd는 파일 시스템에 대한 액세스 권한을 결정할 때 xtab 파일을 참조하므로 내 보낸 파일 시스템 목록의 변경 사항은 즉시 적용됩니다.&lt;/p&gt;
+
+&lt;p&gt;다음은 /usr/sbin/exportfs에서 일반적으로 사용되는 옵션 목록입니다.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;-r&lt;/strong&gt;&lt;br /&gt;
+/etc/libs/nfs/xtab에 새로운 내보내기 목록을 작성하여 /etc/exports에 나열된 모든 디렉토리를 내보내도록합니다. 이 옵션은 /etc/exports에 대한 변경 사항을 적용하여 내보내기 목록을 효과적으로 새로 고칩니다.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;-a&lt;/strong&gt;&lt;br /&gt;
+/usr/sbin/exportfs에 전달되는 다른 옵션에 따라 모든 디렉토리를 내보내거나 내 보내지 않습니다. 다른 옵션을 지정하지 않으면 /usr/sbin/exportfs는 /etc/exports에 지정된 모든 파일 시스템을 내 보냅니다&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;-o file-systems&lt;/strong&gt;&lt;br /&gt;
+/etc/exports에 나열되지 않은 내보낼 디렉토리를 지정합니다. 파일 시스템을 내보낼 추가 파일 시스템으로 대체하십시오. 이 파일 시스템은 /etc/exports에 지정된 것과 같은 f 식으로 형식화되어야합니다. 이 옵션은 내 보낸 파일 시스템을 내보낼 파일 시스템 목록에 영구적으로 추가하기 전에 테스트하는 데 자주 사용됩니다.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;-i&lt;/strong&gt;&lt;br /&gt;
+/etc/exports를 무시합니다. 명령 행에서 제공된 옵션 만 내 보낸 파일 시스템을 정의하는 데 사용됩니다.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;-u&lt;/strong&gt;&lt;br /&gt;
+모든 공유 디렉토리의 압축을 풉니다. /usr/sbin/exportfs -ua 명령은 모든 NFS 데몬을 유지하면서 NFS 파일 공유를 일시 중단합니다. NFS 공유를 다시 사용하려면 exportfs -r을 사용하십시오.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;-v&lt;/strong&gt;&lt;br /&gt;
+exportfs 명령이 실행될 때 파일 시스템이 익스포트되거나 익스포트되지 않는 Verbose 조작이 보다 자세하게 표시됩니다.&lt;/p&gt;
+
+&lt;p&gt;exportfs 명령에 전달 된 옵션이 없으면 현재 내 보낸 파일 시스템의 목록을 표시합니다. exportfs 명령에 대한 자세한 내용은 man exportfs를 참조하십시오.&lt;/p&gt;</content><author><name>김승율</name></author><category term="개발팀" /><summary type="html">소주제</summary></entry><entry><title type="html">Configuring NFS Client</title><link href="http://localhost:4000/%EB%8D%B8%ED%94%BC%EC%BD%A4/three-post/" rel="alternate" type="text/html" title="Configuring NFS Client" /><published>2019-08-21T00:00:00+09:00</published><updated>2019-08-21T00:00:00+09:00</updated><id>http://localhost:4000/%EB%8D%B8%ED%94%BC%EC%BD%A4/three-post</id><content type="html" xml:base="http://localhost:4000/%EB%8D%B8%ED%94%BC%EC%BD%A4/three-post/">&lt;h2 id=&quot;configuring-nfs-client&quot;&gt;Configuring NFS Client&lt;/h2&gt;
+&lt;p&gt;mount 명령은 클라이언트 측에서 NFS 공유를 마운트합니다. 형식은 다음과 같습니다.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;# mount -t nfs -o options server:/remote/export /local/directory
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;이 명령은 다음 변수를 사용합니다.&lt;br /&gt;
+&lt;strong&gt;options&lt;/strong&gt;&lt;br /&gt;
+쉼표로 구분 된 마운트 옵션 목록&lt;br /&gt;
+&lt;strong&gt;server&lt;/strong&gt;&lt;br /&gt;
+마운트 할 파일 시스템을 내보내는 서버의 호스트 이름, IP 주소 또는 정규화 된 도메인 이름&lt;br /&gt;
+&lt;strong&gt;/remote/export&lt;/strong&gt;&lt;br /&gt;
+서버에서 내보내는 파일 시스템 또는 디렉토리, 즉 마운트하려는 디렉토리&lt;br /&gt;
+&lt;strong&gt;/local/directory&lt;/strong&gt;&lt;br /&gt;
+/remote/export가 마운트 된 클라이언트 위치&lt;/p&gt;
+
+&lt;p&gt;Red Hat Enterprise Linux 7에서 사용되는 NFS 프로토콜 버전은 nfsvers 또는 vers 마운트 옵션으로 식별됩니다. 기본적으로 mount는 mount -t nfs와 함께 NFSv4를 사용합니다. 서버가 NFSv4를 지원하지 않으면 클라이언트는 자동으로 서버가 지원하는 버전으로 단계적으로 내려갑니다. nfsvers/vers 옵션을 사용하여 서버가 지원하지 않는 특정 버전을 전달하면 마운트가 실패합니다. 파일 시스템 유형 nfs4는 레거시 이유로도 사용할 수 있습니다. 이것은 mount -t nfs -o nfsvers = 4 host:/remote/export/local/ 디렉토리를 실행하는 것과 같습니다.&lt;/p&gt;
+
+&lt;p&gt;NFS 공유가 수동으로 마운트 된 경우 재부트시 공유가 자동으로 마운트되지 않습니다. Red Hat Enterprise Linux는 부트시 원격 파일 시스템을 자동으로 마운트하는 두 가지 방법 인 /etc/fstab 파일과 autofs 서비스를 제공합니다.&lt;/p&gt;</content><author><name>김승율</name></author><category term="개발팀" /><summary type="html">소주제</summary></entry><entry><title type="html">Required Services</title><link href="http://localhost:4000/%EB%8D%B8%ED%94%BC%EC%BD%A4/first-post/" rel="alternate" type="text/html" title="Required Services" /><published>2019-08-20T00:00:00+09:00</published><updated>2019-08-20T00:00:00+09:00</updated><id>http://localhost:4000/%EB%8D%B8%ED%94%BC%EC%BD%A4/first-post</id><content type="html" xml:base="http://localhost:4000/%EB%8D%B8%ED%94%BC%EC%BD%A4/first-post/">&lt;h2 id=&quot;required-services&quot;&gt;Required Services&lt;/h2&gt;
 &lt;p&gt;Red Hat Enterprise Linux는 커널 레벨 지원과 데몬 프로세스의 조합을 사용하여 NFS 파일 공유를 제공합니다. 모든 NFS 버전은 클라이언트와 서버 간의 원격 프로 시저 호출 (RPC)에 의존합니다. Red Hat Enterprise Linux 7에서 RPC 서비스는 rpcbind 서비스에 의해 제어됩니다. NFS 파일 시스템을 공유하거나 마운트하려면 구현 된 NFS 버전에 따라 다음 서비스가 함께 작동합니다.&lt;/p&gt;
 
-&lt;h3 id=&quot;note&quot;&gt;&lt;strong&gt;Note&lt;/strong&gt;&lt;/h3&gt;
-&lt;p&gt;portmap 서비스는 이전 버전의 Red Hat Enterprise Linux에서 RPC 프로그램 번호를 IP 주소 포트 번호 조합으로 매핑하는 데 사용되었습니다. 이 서비스는 현재 Red Hat Enterprise Linux 7에서 rpcbind로 대체되어 IPv6을 지원합니다.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Note&lt;/strong&gt; &lt;br /&gt;
+portmap 서비스는 이전 버전의 Red Hat Enterprise Linux에서 RPC 프로그램 번호를 IP 주소 포트 번호 조합으로 매핑하는 데 사용되었습니다. 이 서비스는 현재 Red Hat Enterprise Linux 7에서 rpcbind로 대체되어 IPv6을 지원합니다.&lt;/p&gt;
 
 &lt;h3 id=&quot;nfs&quot;&gt;&lt;strong&gt;nfs&lt;/strong&gt;&lt;/h3&gt;
 &lt;p&gt;systemctl start nfs는 NFS 서버와 적절한 RPC 프로세스를 시작하여 공유 NFS 파일 시스템에 대한 요청을 처리합니다.&lt;/p&gt;
@@ -33,21 +220,21 @@
 &lt;h3 id=&quot;rpcidmapd&quot;&gt;&lt;strong&gt;rpc.idmapd&lt;/strong&gt;&lt;/h3&gt;
 &lt;p&gt;rpc.idmapd는 on-the-wire NFSv4 이름 (user @ domain 형식의 문자열)과 로컬 UID 및 GID 사이를 매핑하는 NFSv4 클라이언트 및 서버 업 콜을 제공합니다. idmapd가 NFSv4와 함께 작동하려면 /etc/idmapd.conf 파일을 구성해야합니다. 최소한 NFSv4 매핑 도메인을 정의하는 “Domain”매개 변수를 지정해야합니다. NFSv4 매핑 도메인이 DNS 도메인 이름과 같으면이 매개 변수를 건너 뛸 수 있습니다. ID 매핑이 제대로 작동하려면 클라이언트와 서버가 NFSv4 매핑 도메인에 동의해야합니다.&lt;/p&gt;
 
-&lt;h3 id=&quot;note-1&quot;&gt;&lt;strong&gt;Note&lt;/strong&gt;&lt;/h3&gt;
-&lt;p&gt;Red Hat Enterprise Linux 7에서는 NFSv4 서버 만 rpc.idmapd를 사용합니다. NFSv4 클라이언트는 키링 기반 idmapper nfsidmap을 사용합니다. nfsidmap은 ID 매핑을 수행하기 위해 필요시 커널에 의해 호출되는 독립 실행 형 프로그램입니다. 그것은 데몬이 아닙니다. nfsidmap에 문제가 있으면 클라이언트는 rpc.idmapd를 사용하여 폴백합니다. nfsidmap에 대한 자세한 내용은 nfsidmap 매뉴얼 페이지를 참조하십시오.&lt;/p&gt;</content><author><name>김승율</name></author><category term="개발팀" /><summary type="html">소주제 1</summary></entry><entry><title type="html">pNFS</title><link href="http://localhost:4000/%EB%91%90%EC%82%B0/two-post/" rel="alternate" type="text/html" title="pNFS" /><published>2019-08-20T00:00:00+09:00</published><updated>2019-08-20T00:00:00+09:00</updated><id>http://localhost:4000/%EB%91%90%EC%82%B0/two-post</id><content type="html" xml:base="http://localhost:4000/%EB%91%90%EC%82%B0/two-post/">&lt;h2 id=&quot;pnfs&quot;&gt;pNFS&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;Note&lt;/strong&gt;&lt;br /&gt;
+Red Hat Enterprise Linux 7에서는 NFSv4 서버 만 rpc.idmapd를 사용합니다. NFSv4 클라이언트는 키링 기반 idmapper nfsidmap을 사용합니다. nfsidmap은 ID 매핑을 수행하기 위해 필요시 커널에 의해 호출되는 독립 실행 형 프로그램입니다. 그것은 데몬이 아닙니다. nfsidmap에 문제가 있으면 클라이언트는 rpc.idmapd를 사용하여 폴백합니다. nfsidmap에 대한 자세한 내용은 nfsidmap 매뉴얼 페이지를 참조하십시오.&lt;/p&gt;</content><author><name>김승율</name></author><category term="개발팀" /><summary type="html">소주제</summary></entry><entry><title type="html">pNFS</title><link href="http://localhost:4000/%EB%91%90%EC%82%B0/two-post/" rel="alternate" type="text/html" title="pNFS" /><published>2019-08-20T00:00:00+09:00</published><updated>2019-08-20T00:00:00+09:00</updated><id>http://localhost:4000/%EB%91%90%EC%82%B0/two-post</id><content type="html" xml:base="http://localhost:4000/%EB%91%90%EC%82%B0/two-post/">&lt;h2 id=&quot;pnfs&quot;&gt;pNFS&lt;/h2&gt;
 
 &lt;p&gt;Red Hat Enterprise Linux 6.4에서는 NFS v4.1 표준의 일부로 Parallel NFS (pNFS)를 지원합니다. pNFS 아키텍처는 성능 향상을 통해 NFS의 확장 성을 향상시킵니다. 즉, 서버가 pNFS를 구현할 때 클라이언트는 동시에 여러 서버를 통해 데이터에 액세스 할 수 있습니다. 파일, 객체 및 블록과 같은 세 가지 저장소 프로토콜 또는 레이아웃을 지원합니다.&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;Note&lt;/strong&gt;&lt;br /&gt;
 이 프로토콜은 파일, 객체 및 블록과 같은 세 가지 가능한 pNFS 레이아웃 유형을 허용합니다. Red Hat Enterprise Linux 6.4 클라이언트는 파일 레이아웃 유형 만 지원했지만 Red Hat Enterprise Linux 7은 파일 레이아웃 유형을 지원합니다. 객체 및 블록 레이아웃 유형은 기술 미리보기로 포함됩니다.&lt;/p&gt;
 
-&lt;p&gt;&lt;strong&gt;pNFS Flex Files&lt;/strong&gt;&lt;br /&gt;
-유연한 파일은 독립형 NFSv3 및 NFSv4 서버를 스케일 아웃 이름 공간에 집계 할 수있는 pNFS의 새로운 레이아웃입니다. Flex Files 기능은 RFC 7862 사양에 설명 된 NFSv4.2 표준의 일부입니다.&lt;/p&gt;
+&lt;h3 id=&quot;pnfs-flex-files&quot;&gt;&lt;strong&gt;pNFS Flex Files&lt;/strong&gt;&lt;/h3&gt;
+&lt;p&gt;유연한 파일은 독립형 NFSv3 및 NFSv4 서버를 스케일 아웃 이름 공간에 집계 할 수있는 pNFS의 새로운 레이아웃입니다. Flex Files 기능은 RFC 7862 사양에 설명 된 NFSv4.2 표준의 일부입니다.&lt;/p&gt;
 
 &lt;p&gt;Red Hat Enterprise Linux는 Red Hat Enterprise Linux 7.4부터 Flex Files 서버에서 NFS 공유를 마운트 할 수 있습니다.&lt;/p&gt;
 
-&lt;p&gt;&lt;strong&gt;Mounting pNFS Shares&lt;/strong&gt;
-pNFS 기능을 사용하려면 NFS 버전 4.1 이상을 사용하는 pNFS 지원 서버에서 공유를 마운트하십시오.&lt;/p&gt;
+&lt;h3 id=&quot;mounting-pnfs-shares&quot;&gt;&lt;strong&gt;Mounting pNFS Shares&lt;/strong&gt;&lt;/h3&gt;
+&lt;p&gt;pNFS 기능을 사용하려면 NFS 버전 4.1 이상을 사용하는 pNFS 지원 서버에서 공유를 마운트하십시오.&lt;/p&gt;
 
 &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;# mount -t nfs -o v4.1 server:/remote-export /local-directory
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
@@ -68,4 +255,4 @@ pNFS 기능을 사용하려면 NFS 버전 4.1 이상을 사용하는 pNFS 지원
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;Additional Resources
-For more information on pNFS, refer to: &lt;a href=&quot;http://www.pnfs.com&quot;&gt;http://www.pnfs.com&lt;/a&gt;&lt;/p&gt;</content><author><name>김승율</name></author><category term="서비스팀" /><summary type="html">소주제 2</summary></entry></feed>
+For more information on pNFS, refer to: &lt;a href=&quot;http://www.pnfs.com&quot;&gt;http://www.pnfs.com&lt;/a&gt;&lt;/p&gt;</content><author><name>김승율</name></author><category term="서비스팀" /><summary type="html">소주제</summary></entry></feed>

@@ -1,0 +1,732 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.16.5 by Michael Rose
+  Copyright 2013-2019 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>Configuring the NFS Server - Network File System (NFS)</title>
+<meta name="description" content="소주제">
+
+
+  <meta name="author" content="김승율">
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="Network File System (NFS)">
+<meta property="og:title" content="Configuring the NFS Server">
+<meta property="og:url" content="http://localhost:4000/%EB%8D%B8%ED%94%BC%EC%BD%A4/six-post/">
+
+
+  <meta property="og:description" content="소주제">
+
+
+
+
+
+
+
+  <meta property="article:published_time" content="2019-08-21T00:00:00+09:00">
+
+
+
+  <meta property="article:modified_time" content="2019-08-21T00:00:00+09:00">
+
+
+
+  
+
+  
+
+
+<link rel="canonical" href="http://localhost:4000/%EB%8D%B8%ED%94%BC%EC%BD%A4/six-post/">
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    
+      "@type": "Person",
+      "name": "Your Name",
+      "url": "http://localhost:4000/"
+    
+  }
+</script>
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+<link href="/feed.xml" type="application/atom+xml" rel="alternate" title="Network File System (NFS) Feed">
+
+<!-- https://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+
+<!--[if IE ]>
+  <style>
+    /* old IE unsupported flexbox fixes */
+    .greedy-nav .site-title {
+      padding-right: 3em;
+    }
+    .greedy-nav button {
+      position: absolute;
+      top: 0;
+      right: 0;
+      height: 100%;
+    }
+  </style>
+<![endif]-->
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--single">
+    <nav class="skip-links">
+  <h2 class="screen-reader-text">Skip links</h2>
+  <ul>
+    <li><a href="#site-nav" class="screen-reader-shortcut">Skip to primary navigation</a></li>
+    <li><a href="#main" class="screen-reader-shortcut">Skip to content</a></li>
+    <li><a href="#footer" class="screen-reader-shortcut">Skip to footer</a></li>
+  </ul>
+</nav>
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+
+    
+
+<div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        
+          <a class="site-logo" href="/"><img src="/assets/images/delphicomLogo.png" alt=""></a>
+        
+        <a class="site-title" href="/">
+          Network File System (NFS)
+          
+        </a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="/about/" >Introduction to NFS</a>
+            </li><li class="masthead__menu-item">
+              <a href="/categories/" >Categories</a>
+            </li><li class="masthead__menu-item">
+              <a href="/tags/" >Tags</a>
+            </li></ul>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+
+
+<div itemscope itemtype="https://schema.org/Person">
+
+  
+    <div class="author__avatar">
+      
+
+      
+        <img src="/assets/images/delphicomLogo.png" alt="김승율" itemprop="image">
+      
+    </div>
+  
+
+  <div class="author__content">
+    
+      <h3 class="author__name" itemprop="name">김승율</h3>
+    
+    
+      <div class="author__bio" itemprop="description">
+        <p>지킬 테스트 블로그</p>
+
+      </div>
+    
+  </div>
+
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">Follow</button>
+    <ul class="author__urls social-icons">
+      
+        <li itemprop="homeLocation" itemscope itemtype="https://schema.org/Place">
+          <i class="fas fa-fw fa-map-marker-alt" aria-hidden="true"></i> <span itemprop="name">Korea</span>
+        </li>
+      
+
+      
+        
+          
+            <li><a href="mailto:pookkr@gmail.com" rel="nofollow noopener noreferrer"><i class="fas fa-fw fa-envelope-square" aria-hidden="true"></i> Email</a></li>
+          
+        
+          
+            <li><a href="https://google.com" rel="nofollow noopener noreferrer"><i class="fas fa-fw fa-link" aria-hidden="true"></i> Website</a></li>
+          
+        
+          
+            <li><a href="https://twitter.com/" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-twitter-square" aria-hidden="true"></i> Twitter</a></li>
+          
+        
+          
+            <li><a href="https://facebook.com/" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-facebook-square" aria-hidden="true"></i> Facebook</a></li>
+          
+        
+          
+            <li><a href="https://github.com/" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+          
+        
+          
+            <li><a href="https://instagram.com/" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-instagram" aria-hidden="true"></i> Instagram</a></li>
+          
+        
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      <!--
+  <li>
+    <a href="http://link-to-whatever-social-network.com/user/" itemprop="sameAs" rel="nofollow noopener noreferrer">
+      <i class="fas fa-fw" aria-hidden="true"></i> Custom Social Profile Link
+    </a>
+  </li>
+-->
+    </ul>
+  </div>
+</div>
+
+  
+  </div>
+
+
+  <article class="page" itemscope itemtype="https://schema.org/CreativeWork">
+    <meta itemprop="headline" content="Configuring the NFS Server">
+    <meta itemprop="description" content="소주제">
+    <meta itemprop="datePublished" content="August 21, 2019">
+    <meta itemprop="dateModified" content="August 21, 2019">
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title" itemprop="headline">Configuring the NFS Server
+</h1>
+          
+            <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
+
+
+
+
+  4 minute read
+</p>
+          
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        
+          <aside class="sidebar__right ">
+            <nav class="toc">
+              <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> 페이지 주요 목차</h4></header>
+              <ul class="toc__menu">
+  <li><a href="#configuring-the-nfs-server">Configuring the NFS Server</a>
+    <ul>
+      <li><a href="#the-etcexports-configuration-file">The /etc/exports Configuration File</a></li>
+      <li><a href="#the-exportfs-command">The exportfs Command</a></li>
+    </ul>
+  </li>
+</ul>
+            </nav>
+          </aside>
+        
+        <h2 id="configuring-the-nfs-server">Configuring the NFS Server</h2>
+<p>NFS 서버에서 내보내기를 구성하는 방법에는 두 가지가 있습니다.</p>
+
+<ul>
+  <li>NFS 구성 파일, 즉 /etc/exports 를 수동으로 편집하십시오.</li>
+  <li>명령 줄을 통해, 즉 exportfs 명령을 사용합니다.</li>
+</ul>
+
+<h3 id="the-etcexports-configuration-file"><strong>The /etc/exports Configuration File</strong></h3>
+<p>/etc/exports 파일은 원격 호스트로 내보내는 파일 시스템을 제어하고 옵션을 지정합니다. 다음과 같은 구문 규칙을 따릅니다.</p>
+
+<ul>
+  <li>빈 줄은 무시됩니다.</li>
+  <li>주석을 추가하려면 해시 기호 (#)가있는 행을 시작하십시오.</li>
+  <li>긴 줄은 백 슬래시 ()로 래핑 할 수 있습니다.</li>
+  <li>내 보낸 파일 시스템은 각각의 개별 행에 있어야합니다.</li>
+  <li>내 보낸 파일 시스템 뒤에있는 권한이 부여 된 호스트 목록은 공백 문자로 구분해야합니다.</li>
+  <li>각 호스트에 대한 옵션은 호스트 식별자 바로 뒤에 괄호 안에 있어야하며 호스트와 첫 번째 괄호를 구분하는 공백을 두지 않아야합니다.</li>
+</ul>
+
+<p>내 보낸 파일 시스템의 각 항목에는 다음과 같은 구조가 있습니다.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>export host(options)
+</code></pre></div></div>
+
+<p>위의 구조는 다음 변수를 사용합니다.<br />
+<strong>export</strong><br />
+내보낼 디렉토리<br />
+<strong>host</strong><br />
+내보내기가 공유되는 호스트 또는 네트워크<br />
+<strong>options</strong><br />
+호스트에 사용할 옵션</p>
+
+<p>각 호스트에 대한 특정 옵션과 함께 여러 호스트를 지정할 수 있습니다. 그렇게하려면 공백으로 구분 된 목록과 같은 행에 각 호스트 이름과 그 다음에 괄호 안에 각각의 옵션을 나열하십시오.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>export host1(options1) host2(options2) host3(options3)
+</code></pre></div></div>
+
+<p>가장 간단한 형식의 /etc/exports 파일은 다음 예에서와 같이 내 보낸 디렉토리와 액세스가 허용 된 호스트 만 지정합니다.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>/exported/directory bob.example.com
+</code></pre></div></div>
+
+<p>여기서 bob.example.com은 /exported/directory/를 NFS 서버에서 마운트 할 수 있습니다. 이 예제에서는 옵션을 지정하지 않았으므로 NFS는 기본 설정을 사용합니다</p>
+
+<p>기본 설정은 다음과 같습니다.</p>
+
+<p><strong>ro</strong><br />
+내 보낸 파일 시스템은 읽기 전용입니다. 원격 호스트는 파일 시스템에서 공유되는 데이터를 변경할 수 없습니다. 호스트가 파일 시스템을 변경 (읽기 및 쓰기) 할 수있게하려면 rw 옵션을 지정하십시오.<br />
+<strong>sync</strong>  <br />
+이전 요청에 의한 변경 사항이 디스크에 기록되기 전에 NFS 서버는 요청에 응답하지 않습니다. 대신 비동기 쓰기를 활성화하려면 async 옵션을 지정하십시오.<br />
+<strong>wdelay</strong>  <br />
+NFS 서버는 다른 쓰기 요청이 임박한 것으로 의심 될 경우 디스크 쓰기를 지연시킵니다. 이는 별도의 쓰기 명령으로 디스크에 액세스해야하는 횟수를 줄여 쓰기 오버 헤드를 줄여 성능을 향상시킬 수 있습니다. 이 기능을 사용하지 않으려면 no_wdelay를 지정하십시오. no_wdelay는 기본 sync 옵션도 지정되어있는 경우에만 사용할 수 있습니다.<br />
+<strong>root_squash</strong><br />
+이렇게하면 루트 사용자가 원격으로 (로컬이 아닌) 루트 권한을 갖는 것을 방지 할 수 있습니다. 대신 NFS 서버는 사용자 ID nfsnobody를 할당합니다. 이는 원격 루트 사용자의 권한을 가장 낮은 로컬 사용자에게 효과적으로 “과시 (squashes)”하여 원격 서버에 무단으로 기록 할 수 없게합니다. 루트 스쿼시를 사용하지 않으려면 no_root_squash를 지정하십시오.</p>
+
+<p>모든 원격 사용자 (루트 포함)를 스쿼시하려면 all_sqcduash를 사용하십시오. NFS 서버가 특정 호스트의 원격 사용자에게 할당해야하는 사용자 및 그룹 ID를 지정하려면 다음과 같이 각각 anonuid 및 anongid 옵션을 사용하십시오.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>export host(anonuid=uid,anongid=gid)
+</code></pre></div></div>
+
+<p>여기에서 uid와 gid는 각각 사용자 ID 번호와 그룹 ID 번호입니다. anonuid 및 anongid 옵션을 사용하면 원격 NFS 사용자가 공유 할 수있는 특별한 사용자 및 그룹 계정을 만들 수 있습니다.</p>
+
+<p>기본적으로 액세스 제어 목록 (ACL)은 Red Hat Enterprise Linux에서 NFS에 의해 지원됩니다. 이 기능을 사용하지 않으려면 파일 시스템을 내보낼 때 no_acl 옵션을 지정하십시오.</p>
+
+<p>내 보낸 모든 파일 시스템의 각 기본값은 명시 적으로 대체 되어야합니다. 예를 들어, rw 옵션을 지정하지 않으면 내 보낸 파일 시스템이 읽기 전용으로 공유됩니다. 다음은 두 가지 기본 옵션을 무시하는 /etc/exports의 샘플 행입니다.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>/another/exported/directory 192.168.0.3(rw,async)
+</code></pre></div></div>
+
+<p>이 예에서 192.168.0.3은 /another/exported/directory/ read 및 write를 마운트 할 수 있으며 디스크에 대한 모든 쓰기는 비동기입니다. 옵션 내보내기에 대한 자세한 내용은 man exportfs를 참조하십시오.</p>
+
+<p>기본값이 지정되지 않은 다른 옵션을 사용할 수 있습니다. 여기에는 하위 트리 검사를 비활성화하고 안전하지 않은 포트에서 액세스 할 수있게 해주는 기능, 안전하지 않은 파일 잠금을 허용하는 기능 (초기 NFS 클라이언트 구현에 필요)이 포함됩니다. 사용하지 않는 옵션에 대한 자세한 내용은 man exports를 참조하십시오.</p>
+
+<h3 id="the-exportfs-command"><strong>The exportfs Command</strong></h3>
+<p>NFS를 사용하여 원격 사용자에게 내보내는 모든 파일 시스템과 해당 파일 시스템의 액세스 수준은 /etc/exports 파일에 나열됩니다. nfs 서비스가 시작되면 /usr/sbin/exportfs 명령이 실행되어 이 파일을 읽은 다음 실제 마운트 프로세스에 대해 rpc.mountd (NFSv3 인 경우)로 제어를 전달한 다음 rpc.nfsd로 전달하여 파일 시스템을 원격으로 사용할 수 있도록합니다 사용자.</p>
+
+<p>수동으로 실행하면 /usr/sbin/exportfs 명령을 사용하여 루트 사용자가 NFS 서비스를 다시 시작하지 않고 디렉토리를 선택적으로 내보내거나 반출 할 수 있습니다. 적절한 옵션이 주어지면 /usr/sbin/exportfs 명령은 내 보낸 파일 시스템을 /var/lib/nfs/xtab에 기록합니다. rpc.mountd는 파일 시스템에 대한 액세스 권한을 결정할 때 xtab 파일을 참조하므로 내 보낸 파일 시스템 목록의 변경 사항은 즉시 적용됩니다.</p>
+
+<p>다음은 /usr/sbin/exportfs에서 일반적으로 사용되는 옵션 목록입니다.</p>
+
+<p><strong>-r</strong><br />
+/etc/libs/nfs/xtab에 새로운 내보내기 목록을 작성하여 /etc/exports에 나열된 모든 디렉토리를 내보내도록합니다. 이 옵션은 /etc/exports에 대한 변경 사항을 적용하여 내보내기 목록을 효과적으로 새로 고칩니다.</p>
+
+<p><strong>-a</strong><br />
+/usr/sbin/exportfs에 전달되는 다른 옵션에 따라 모든 디렉토리를 내보내거나 내 보내지 않습니다. 다른 옵션을 지정하지 않으면 /usr/sbin/exportfs는 /etc/exports에 지정된 모든 파일 시스템을 내 보냅니다</p>
+
+<p><strong>-o file-systems</strong><br />
+/etc/exports에 나열되지 않은 내보낼 디렉토리를 지정합니다. 파일 시스템을 내보낼 추가 파일 시스템으로 대체하십시오. 이 파일 시스템은 /etc/exports에 지정된 것과 같은 f 식으로 형식화되어야합니다. 이 옵션은 내 보낸 파일 시스템을 내보낼 파일 시스템 목록에 영구적으로 추가하기 전에 테스트하는 데 자주 사용됩니다.</p>
+
+<p><strong>-i</strong><br />
+/etc/exports를 무시합니다. 명령 행에서 제공된 옵션 만 내 보낸 파일 시스템을 정의하는 데 사용됩니다.</p>
+
+<p><strong>-u</strong><br />
+모든 공유 디렉토리의 압축을 풉니다. /usr/sbin/exportfs -ua 명령은 모든 NFS 데몬을 유지하면서 NFS 파일 공유를 일시 중단합니다. NFS 공유를 다시 사용하려면 exportfs -r을 사용하십시오.</p>
+
+<p><strong>-v</strong><br />
+exportfs 명령이 실행될 때 파일 시스템이 익스포트되거나 익스포트되지 않는 Verbose 조작이 보다 자세하게 표시됩니다.</p>
+
+<p>exportfs 명령에 전달 된 옵션이 없으면 현재 내 보낸 파일 시스템의 목록을 표시합니다. exportfs 명령에 대한 자세한 내용은 man exportfs를 참조하십시오.</p>
+
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+  
+
+
+  
+  
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-tags" aria-hidden="true"></i> Tags: </strong>
+    <span itemprop="keywords">
+    
+      
+      
+      <a href="/tags/#%EA%B0%9C%EB%B0%9C%ED%8C%80" class="page__taxonomy-item" rel="tag">개발팀</a>
+    
+    </span>
+  </p>
+
+
+
+
+  
+
+
+  
+  
+  
+
+  <p class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-folder-open" aria-hidden="true"></i> Categories: </strong>
+    <span itemprop="keywords">
+    
+      
+      
+      <a href="/categories/#%EB%8D%B8%ED%94%BC%EC%BD%A4" class="page__taxonomy-item" rel="tag">델피콤</a>
+    
+    </span>
+  </p>
+
+
+        
+          <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time datetime="2019-08-21">August 21, 2019</time></p>
+        
+      </footer>
+
+      <section class="page__share">
+  
+    <h4 class="page__share-title">Share on</h4>
+  
+
+  <a href="https://twitter.com/intent/tweet?text=Configuring+the+NFS+Server%20http%3A%2F%2Flocalhost%3A4000%2F%25EB%258D%25B8%25ED%2594%25BC%25EC%25BD%25A4%2Fsix-post%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+
+  <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2F%25EB%258D%25B8%25ED%2594%25BC%25EC%25BD%25A4%2Fsix-post%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A4000%2F%25EB%258D%25B8%25ED%2594%25BC%25EC%25BD%25A4%2Fsix-post%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+</section>
+
+
+      
+  <nav class="pagination">
+    
+      <a href="/%EB%91%90%EC%82%B0/four-post/" class="pagination--pager" title="Mounting NFS File Systems Using /etc/fstab
+">Previous</a>
+    
+    
+      <a href="/%EB%8D%B8%ED%94%BC%EC%BD%A4/three-post/" class="pagination--pager" title="Configuring NFS Client
+">Next</a>
+    
+  </nav>
+
+    </div>
+
+    
+  </article>
+
+  
+  
+    <div class="page__related">
+      <h4 class="page__related-title">You may also enjoy</h4>
+      <div class="grid__wrapper">
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+      <div class="archive__item-teaser">
+        <img src=
+          
+            "/assets/images/delphicomLogo.png"
+          
+          alt="">
+      </div>
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/%EB%8D%B8%ED%94%BC%EC%BD%A4/three-post/" rel="permalink">Configuring NFS Client
+</a>
+      
+    </h2>
+    
+      <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
+
+
+
+
+  less than 1 minute read
+</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">소주제
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+      <div class="archive__item-teaser">
+        <img src=
+          
+            "/assets/images/delphicomLogo.png"
+          
+          alt="">
+      </div>
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/%EB%91%90%EC%82%B0/four-post/" rel="permalink">Mounting NFS File Systems Using /etc/fstab
+</a>
+      
+    </h2>
+    
+      <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
+
+
+
+
+  less than 1 minute read
+</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">소주제
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+      <div class="archive__item-teaser">
+        <img src=
+          
+            "/assets/images/delphicomLogo.png"
+          
+          alt="">
+      </div>
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/%EB%8D%B8%ED%94%BC%EC%BD%A4/five-post/" rel="permalink">Common NFS Mount Options
+</a>
+      
+    </h2>
+    
+      <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
+
+
+
+
+  1 minute read
+</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">소주제
+</p>
+  </article>
+</div>
+
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork">
+    
+      <div class="archive__item-teaser">
+        <img src=
+          
+            "/assets/images/delphicomLogo.png"
+          
+          alt="">
+      </div>
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/%EB%91%90%EC%82%B0/two-post/" rel="permalink">pNFS
+</a>
+      
+    </h2>
+    
+      <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
+
+
+
+
+  1 minute read
+</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">소주제
+</p>
+  </article>
+</div>
+
+        
+      </div>
+    </div>
+  
+  
+</div>
+
+    </div>
+
+    
+
+    <div id="footer" class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+      <li><strong>Follow:</strong></li>
+    
+
+    
+      
+        
+          <li><a href="https://github.com" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+        
+      
+    
+
+    <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2019 Your Name. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+  <script src="https://kit.fontawesome.com/4eee35f757.js"></script>
+
+
+
+
+
+
+
+    
+  <script>
+    var disqus_config = function () {
+      this.page.url = "http://localhost:4000/%EB%8D%B8%ED%94%BC%EC%BD%A4/six-post/";  // Replace PAGE_URL with your page's canonical URL variable
+      this.page.identifier = "/%EB%8D%B8%ED%94%BC%EC%BD%A4/six-post"; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+    (function() { // DON'T EDIT BELOW THIS LINE
+      var d = document, s = d.createElement('script');
+      s.src = 'https://pookkr123-github-io.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', +new Date());
+      (d.head || d.body).appendChild(s);
+    })();
+  </script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+  
+
+
+
+
+
+  </body>
+</html>
